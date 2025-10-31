@@ -1,6 +1,5 @@
 import tkinter as tk
-from tkinter import ttk
-from tkinter import filedialog
+from tkinter import ttk, messagebox
 from file_selector import FileSelector
 from decklist_generator import generate_decklist
 
@@ -88,7 +87,9 @@ class App(tk.Tk):
     def generate_decklist(self):
         input_file = self.input_file.get()
         output_file = self.output_file.get()
-        print(input_file, output_file)
+        if not (input_file and output_file):
+            messagebox.showwarning("Warning", "Please select an input and output file.")
+            return
         generate_decklist(
             input_file,
             output_file,
@@ -100,6 +101,7 @@ class App(tk.Tk):
             self.first_name.get(),
             self.last_name.get()
         )
+        messagebox.showinfo("Success", f"Decklist generated: {output_file}")
 
 
 if __name__ == "__main__":

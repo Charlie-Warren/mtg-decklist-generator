@@ -30,6 +30,9 @@ class Info:
             "Deck Designer": self.deck_designer,
             "First Name": self.first_name,
             "Last Name": self.last_name,
-            "Last Initial": self.last_name[0]
         }
+        try:
+            ret["Last Initial"] = self.last_name[0]
+        except:
+            ret["Last Initial"] = "-"
         return ret

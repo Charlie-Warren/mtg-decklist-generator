@@ -1,0 +1,1 @@
+uv run pyinstaller --onefile --noconsole --name "Decklist Generator" --add-data "src/templates:templates" src/app.py

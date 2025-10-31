@@ -38,6 +38,8 @@ def save_pdf(writer: PdfWriter, output_file) -> None:
 def get_writer() -> PdfWriter:
     script_dir = Path(__file__).parent.absolute()
     template_path = script_dir / "templates" / "constructed_decklist_blank.pdf"
+    if not template_path.exists():
+        raise FileNotFoundError(f"Template PDF not found at {template_path}")
     reader = PdfReader(template_path)
     writer = PdfWriter()
     writer.clone_document_from_reader(reader)
