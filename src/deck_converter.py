@@ -72,29 +72,18 @@ class DeckConverter:
                 success = self._add_extra_section_entry(e)
                 if not success:
                     raise Exception(f"Failed to add {e.name} to extra section")
-                else:
-                    print(f"Added {e.name} to extra section")
 
         for entry in main_deck:
             success = self._add_main_section_entry(entry)
             if not success:
-                print(f"Failed to add {entry.name} to main section, trying extra section")
-
                 success = self._add_extra_section_entry(entry)
                 if not success:
                     raise Exception(f"Failed to add {entry.name} to main or extra section")
-                else:
-                    print(f"Added {entry.name} to extra section")
-
-            else:
-                print(f"Added {entry.name} to main section")
 
         for entry in sideboard:
             success = self._add_sideboard_entry(entry)
             if not success:
                 raise Exception(f"Failed to add {entry.name} to sideboard section")
-            else:
-                print(f"Added {entry.name} to sideboard section")
 
         pdf_dict = deepcopy(self.info.to_pdf_dict())
         pdf_dict.update(self.main_section)

@@ -30,12 +30,8 @@ def read_moxfield_text(file_path) -> Deck:
     return Deck(main_deck, sideboard)
 
 
-def save_pdf(writer: PdfWriter, fname: str = "decklist.pdf") -> None:
-    output_dir = Path("output")
-    output_dir.mkdir(exist_ok=True)
-    output_path = output_dir / fname
-
-    with open(output_path, "wb") as f:
+def save_pdf(writer: PdfWriter, output_file) -> None:
+    with open(output_file, "wb") as f:
         writer.write(f)
 
 
@@ -50,7 +46,7 @@ def get_writer() -> PdfWriter:
 
 def generate_decklist(
         input_file,
-        output_fname: str,
+        output_file,
         date: str,
         event: str,
         location: str,
@@ -64,7 +60,6 @@ def generate_decklist(
     deckconverter = DeckConverter(deck, info)
 
     writer = get_writer()
-    print(f"Fields = {writer.get_fields()}")
     pdf_dict = deckconverter.convert()
     writer.update_page_form_field_values(writer.pages[0], pdf_dict)
-    save_pdf(writer, output_fname)
+    save_pdf(writer, output_file)
