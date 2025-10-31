@@ -1,7 +1,13 @@
 [project]
 name = "mtg-decklist-generator"
 version = "0.1.0"
-description = "Add your description here"
+description = "Converts a MTG decklist into a pdf for paper events."
+authors = [
+    {name = "Charles Warren", email = "c_warren1@live.com"}
+]
+maintainers = [
+    {name = "Charles Warren", email = "c_warren1@live.com"}
+]
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
