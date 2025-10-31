@@ -1,1 +1,1 @@
-uv run pyinstaller --onefile --noconsole --name "Decklist Generator" --add-data "src/templates:templates" src/app.py
+uv run pyinstaller --onefile --noconsole --name "DecklistGenerator" --add-data "src/templates:templates" src/app.py
