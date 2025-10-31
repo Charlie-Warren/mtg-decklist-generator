@@ -3,7 +3,7 @@ from decklist_generator import generate_decklist
 
 def main():
     generate_decklist(
-        input_file="Eldrazi Tron - moxfield.txt",
+        input_file="example_decklists/Eldrazi Tron - moxfield.txt",
         output_fname="etron_decklist.pdf",
         date="2025-10-31",
         event="RCQ",
@@ -15,7 +15,7 @@ def main():
     )
 
     generate_decklist(
-        input_file="Deck - Mono-Green Amulet Titan - mtggoldfish.txt",
+        input_file="example_decklists/Deck - Mono-Green Amulet Titan - mtggoldfish.txt",
         output_fname="amulet_decklist.pdf",
         date="2025-10-31",
         event="RCQ",
