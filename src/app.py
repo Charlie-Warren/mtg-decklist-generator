@@ -2,16 +2,18 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 from file_selector import FileSelector
 from decklist_generator import generate_decklist
+from utils import shorten_path
+from typing import Optional
+import sys
 
 class App(tk.Tk):
-    def __init__(self):
+    def __init__(self, input_file:Optional[str]=None, output_file:Optional[str]=None):
         super().__init__()
         self.geometry("600x250")
         self.title("Decklist Generator")
 
-        self.input_file = tk.StringVar()
-        self.input_file_shortened = tk.StringVar()
-        self.output_file = tk.StringVar()
+        self.input_file = tk.StringVar(value=input_file)
+        self.output_file = tk.StringVar(value=output_file)
         self.date = tk.StringVar()
         self.event = tk.StringVar()
         self.location = tk.StringVar()
@@ -105,5 +107,5 @@ class App(tk.Tk):
 
 
 if __name__ == "__main__":
-    app = App()
+    app = App(*sys.argv[1:])
     app.mainloop()

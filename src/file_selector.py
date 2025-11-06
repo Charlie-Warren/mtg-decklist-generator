@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk, filedialog
 import os
+from utils import shorten_path
 
 class FileSelector(ttk.Frame):
     def __init__(self, parent, mode="open", defaultextension=None, filetypes=[("All Files", "*.*")], label_width="", button_width="", file_var=None, **kwargs):
@@ -10,6 +11,7 @@ class FileSelector(ttk.Frame):
         self.filetypes = filetypes
         self.file_var = file_var or tk.StringVar()
         self.short_file_var = tk.StringVar()
+        self.set_short_file_path()
 
         # Label showing selected file
         file_label = ttk.Label(self, textvariable=self.short_file_var, width=label_width)
@@ -39,4 +41,7 @@ class FileSelector(ttk.Frame):
             raise ValueError(f"Invalid mode: {self.mode}")
         if file_path:
             self.file_var.set(file_path)
-            self.short_file_var.set(os.path.basename(file_path))
+            self.set_short_file_path()
+
+    def set_short_file_path(self):
+        self.short_file_var.set(shorten_path(self.file_var.get()))
