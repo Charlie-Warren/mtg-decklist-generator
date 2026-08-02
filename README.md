@@ -15,6 +15,8 @@
 
 ## Using the Application
 
+![Application Screenshot](images/application%20screenshot.png)
+
 1. Run `DecklistGenerator.exe` and input your decklist as a txt file.
 2. Input all the fields and press `Generate Decklist`
 3. A PDF with your decklist will be created, ready to be printed for your event.
