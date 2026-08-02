@@ -20,4 +20,4 @@
 3. A PDF with your decklist will be created, ready to be printed for your event.
 
 ## Example Output
-[![Example Output](images/example%20output.PNG)]
+![Example Output](images/example%20output.PNG)
